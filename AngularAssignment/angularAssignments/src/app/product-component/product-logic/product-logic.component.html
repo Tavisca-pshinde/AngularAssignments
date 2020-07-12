@@ -1,0 +1,27 @@
+<form [formGroup]="registerForm">
+    ProductId: <input formControlName="ProductId" class="form-control" > 
+    ProductName: <input formControlName="ProductName" class="form-control">
+    Category: <input formControlName="Category" class="form-control">
+    Manufacturer: <input formControlName="Manufacturer" class="form-control">
+    Description: <input formControlName="Description" class="form-control">
+    Price: <input formControlName="Price" class="form-control">
+  </form> 
+  <div><button (click)="AddNewProduct()">Submit</button></div>
+<div><label *ngFor="let singlestatus of status">{{ singlestatus }}</label><br></div>
+
+<input type="radio" id="sort" name="sort" value="Sort By Price" (click)='OnSort()'>
+<label for="price">Sort By Price</label>
+<table>
+    <thead >
+        <tr >
+            <th *ngFor="let head of header">{{head}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of ListOfProducts">
+            <td *ngFor="let head of header">
+                {{ product[head] }}
+            </td>
+        </tr>
+    </tbody>
+</table>
